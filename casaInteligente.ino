@@ -22,13 +22,14 @@
 #define LED_QUARTO 40
 #define LED_BANHEIRO 39
 #define LED_COZINHA 38
-#define LED_QUARTO2 15
-#define LED_VARANDA 16
+#define LED_QUARTO2 37
+#define LED_VARANDA 36
 #define LED_POSTE 47
 // ======================== SENSORES E ATUADORES ========================
 #define SENSOR_MOV 7
 #define BUZZER 42
-#define SENSOR_RES 4
+#define SENSOR_RES 17
+
 
 // ======================== RFID (SPI - PINOS CONFIGURADOS) ========================
 #define RFID_SS 11
@@ -56,8 +57,7 @@ const unsigned long INTERVALO_REDE = 10000;  // Intervalo de 10000 milissegundos
 // ======================== MAPEAMENTO BLYNK E VARIÁVEIS GLOBAIS ========================
 // Blynk: V0=PIR, V1=senha (String), V2=status do alarme (0/1).
 // V3=sala, V4=quarto, V5=quarto2, V6=banheiro, V7=cozinha, V8=varanda.
-const int PINOS_LUZES[] = {
-  LED_SALA, LED_QUARTO, LED_QUARTO2, LED_BANHEIRO, LED_COZINHA, LED_VARANDA
+const int PINOS_LUZES[] = {LED_SALA, LED_QUARTO, LED_QUARTO2, LED_BANHEIRO, LED_COZINHA, LED_VARANDA};
 const int VIRTUAIS_LUZES[] = {V3, V4, V5, V6, V7, V8};
 bool estadosLuzes[6] = {};  // Guarda os seis estados das luzes, inicialmente todos falsos (apagados).
 bool pirHabilitado = false;
@@ -97,7 +97,7 @@ void setup() {
   const int saidas[] = {
     BUZZER, LED_VERM, LED_VERD, LED_POSTE, LED_SALA, LED_QUARTO,
     LED_QUARTO2, LED_BANHEIRO, LED_COZINHA, LED_VARANDA
-  };  // Encerra a lista de saídas.
+  };
   for (int pino : saidas) {
     digitalWrite(pino, DESLIGADO);
     pinMode(pino, OUTPUT);
