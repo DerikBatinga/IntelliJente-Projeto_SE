@@ -30,7 +30,6 @@
 #define BUZZER 42
 #define SENSOR_RES 17
 
-
 // ======================== RFID (SPI - PINOS CONFIGURADOS) ========================
 #define RFID_SS 11
 #define RFID_SCK 10
@@ -97,7 +96,7 @@ void setup() {
   const int saidas[] = {
     BUZZER, LED_VERM, LED_VERD, LED_POSTE, LED_SALA, LED_QUARTO,
     LED_QUARTO2, LED_BANHEIRO, LED_COZINHA, LED_VARANDA
-  };
+  };  // Encerra a lista de saídas.
   for (int pino : saidas) {
     digitalWrite(pino, DESLIGADO);
     pinMode(pino, OUTPUT);
